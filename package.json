@@ -1,6 +1,6 @@
 {
   "name": "visualcopium",
-  "version": "1.0.0",
+  "version": "1.0.1",
 	"author": {
 		"url": "https://github.com/boyninja1555",
 		"email": "flappyfloorg@gmail.com",
@@ -27,7 +27,8 @@
 		}
 	},
   "files": [
-    "dist"
+    "dist",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsc",
