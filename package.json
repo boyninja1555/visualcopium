@@ -1,0 +1,39 @@
+{
+  "name": "visualcopium",
+  "version": "1.0.0",
+	"author": {
+		"url": "https://github.com/boyninja1555",
+		"email": "flappyfloorg@gmail.com",
+		"name": "boyninja1555"
+	},
+  "description": "Copium for visual programmers!",
+  "homepage": "https://github.com/boyninja1555/visualcopium#readme",
+  "bugs": {
+		"email": "flappyfloorg@gmail.com",
+    "url": "https://github.com/boyninja1555/visualcopium/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boyninja1555/visualcopium.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
