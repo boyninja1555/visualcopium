@@ -30,3 +30,20 @@ export function PickRandom(minimum: number, maximum: number): number {
 	const min = Math.ceil(minimum)
 	return Math.floor(Math.random() * (Math.floor(maximum) - min + 1)) + min
 }
+
+// I/O
+export function Ask(message: string): string {
+	return prompt(message, "")!
+}
+
+export function Say(message: string): void {
+	console.log(message)
+}
+
+export function SayWarning(warning: string): void {
+	console.warn(warning)
+}
+
+export function SayError(error: string): void {
+	console.error(error)
+}

@@ -1,6 +1,6 @@
 {
   "name": "visualcopium",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": {
     "url": "https://github.com/boyninja1555",
     "email": "flappyfloorg@gmail.com",
@@ -42,6 +42,7 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
+    "@types/node": "^26.5.1",
     "typescript": "^7.0.2"
   }
 }

@@ -211,7 +211,3 @@ export function MouseX(): number {
 export function MouseY(): number {
 	return mouse_position.y
 }
-
-export function Ask(message: string): string {
-	return prompt(message, "")!
-}

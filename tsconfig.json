@@ -4,6 +4,9 @@
 		"outDir": "./dist",
 		"module": "nodenext",
 		"target": "esnext",
+		"types": [
+			"node"
+		],
 		"lib": [
 			"ESNext",
 			"DOM"
