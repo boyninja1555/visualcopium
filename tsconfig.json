@@ -5,6 +5,7 @@
 		"module": "nodenext",
 		"target": "esnext",
 		"types": [
+			"bun",
 			"node"
 		],
 		"lib": [
