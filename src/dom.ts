@@ -80,6 +80,10 @@ export type BrowserKey =
 	| "."
 	| "/"
 
+/**
+ * Code will run once the page finishes loading.
+ * @param callback Code block/function
+ */
 export function WhenFlagClicked(callback: () => void): void {
 	document.addEventListener("DOMContentLoaded", callback)
 }
@@ -90,6 +94,11 @@ window.addEventListener("keypress", event => {
 	for (const listener of window.VC_keyPressListeners.get(event.key)!) listener()
 })
 
+/**
+ * Code will run when a specific key is pressed.
+ * @param key Key to look for
+ * @param callback Code block/function
+ */
 export function WhenKeyPressed(key: BrowserKey, callback: () => void): void {
 	let domKey = ""
 	switch (key) {
@@ -145,6 +154,11 @@ window.VC_pressedKeys = new Set()
 window.addEventListener("keydown", event => window.VC_pressedKeys.add(event.key))
 window.addEventListener("keyup", event => window.VC_pressedKeys.delete(event.key))
 
+/**
+ * Returns whether a specific key is pressed.
+ * @param key Key to look for
+ * @returns Whether a specific key is pressed
+ */
 export function KeyPressed(key: BrowserKey): boolean {
 	switch (key) {
 		case "Space":
@@ -194,20 +208,36 @@ window.VC_mouseDown = false
 window.addEventListener("mousedown", () => (window.VC_mouseDown = true))
 window.addEventListener("mouseup", () => (window.VC_mouseDown = false))
 
+/**
+ * Returns whether the mouse is pressed down.
+ * @returns Whether the mouse is pressed down
+ */
 export function MouseDown(): boolean {
 	return window.VC_mouseDown
 }
 
 const mouse_position: Vec2n = { x: 0, y: 0 }
 
+/**
+ * Returns the mouse's position as a vector object. Use `MouseX();` and `MouseY();` for simplified return values!
+ * @returns Mouse's position (Vec2n)
+ */
 export function MousePosition(): Vec2n {
 	return { ...mouse_position }
 }
 
+/**
+ * Return's the mouse's X position.
+ * @returns Mouse's X position
+ */
 export function MouseX(): number {
 	return mouse_position.x
 }
 
+/**
+ * Return's the mouse's Y position.
+ * @returns Mouse's Y position
+ */
 export function MouseY(): number {
 	return mouse_position.y
 }
