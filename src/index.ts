@@ -43,7 +43,7 @@ export function RepeatUntil(condition: Condition, callback: () => void): void {
  */
 export function RepeatWhile(condition: Condition, callback: () => void): void {
 	while (
-		!(() =>
+		(() =>
 			typeof condition == "number"
 				? condition != 0
 				: typeof condition == "boolean"
