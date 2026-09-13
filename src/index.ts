@@ -25,7 +25,15 @@ export function Repeat(times: number, callback: () => void): void {
  * @param callback Code block/function
  */
 export function RepeatUntil(condition: Condition, callback: () => void): void {
-	while (!condition()) callback()
+	while (
+		!(() =>
+			typeof condition == "number"
+				? condition != 0
+				: typeof condition == "boolean"
+					? condition
+					: condition())()
+	)
+		callback()
 }
 
 /**
@@ -34,7 +42,15 @@ export function RepeatUntil(condition: Condition, callback: () => void): void {
  * @param callback Code block/function
  */
 export function RepeatWhile(condition: Condition, callback: () => void): void {
-	while (condition()) callback()
+	while (
+		!(() =>
+			typeof condition == "number"
+				? condition != 0
+				: typeof condition == "boolean"
+					? condition
+					: condition())()
+	)
+		callback()
 }
 
 /**
