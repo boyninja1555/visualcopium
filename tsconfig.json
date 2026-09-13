@@ -15,7 +15,6 @@
 		"sourceMap": true,
 		"declaration": true,
 		"declarationMap": true,
-		"composite": true,
 		"noUncheckedIndexedAccess": true,
 		"exactOptionalPropertyTypes": true,
 		"strict": true,
