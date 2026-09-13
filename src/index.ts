@@ -1,10 +1,8 @@
-import { type bboolean, btrue, bfalse } from "./typing.js"
-
 declare global {
 	interface Window {
 		VC_pressedKeys: Set<String>
 		VC_keyPressListeners: Map<string, (() => void)[]>
-		VC_mouseDown: bboolean
+		VC_mouseDown: boolean
 	}
 }
 
@@ -14,16 +12,16 @@ export function Repeat(times: number, callback: () => void): void {
 	for (let i = 0; i < times; i++) callback()
 }
 
-export function RepeatUntil(condition: () => bboolean, callback: () => void): void {
+export function RepeatUntil(condition: () => boolean, callback: () => void): void {
 	while (!condition()) callback()
 }
 
-export function RepeatWhile(condition: () => bboolean, callback: () => void): void {
+export function RepeatWhile(condition: () => boolean, callback: () => void): void {
 	while (condition()) callback()
 }
 
 export function Forever(callback: () => void): void {
-	while (btrue) callback()
+	while (true) callback()
 }
 
 // Math

@@ -1,5 +1,4 @@
-import type { Vec2n, bboolean } from "./typing.js"
-import { btrue, bfalse } from "./typing.js"
+import type { Vec2n } from "./typing.js"
 
 export type BrowserKey =
 	| "a"
@@ -146,57 +145,57 @@ window.VC_pressedKeys = new Set()
 window.addEventListener("keydown", event => window.VC_pressedKeys.add(event.key))
 window.addEventListener("keyup", event => window.VC_pressedKeys.delete(event.key))
 
-export function KeyPressed(key: BrowserKey): bboolean {
+export function KeyPressed(key: BrowserKey): boolean {
 	switch (key) {
 		case "Space":
-			return window.VC_pressedKeys.has(" ") ? btrue : bfalse
+			return window.VC_pressedKeys.has(" ")
 		case "Enter":
-			return window.VC_pressedKeys.has("Enter") ? btrue : bfalse
+			return window.VC_pressedKeys.has("Enter")
 		case "Backspace":
-			return window.VC_pressedKeys.has("Backspace") ? btrue : bfalse
+			return window.VC_pressedKeys.has("Backspace")
 		case "Tab":
-			return window.VC_pressedKeys.has("Tab") ? btrue : bfalse
+			return window.VC_pressedKeys.has("Tab")
 		case "Escape":
-			return window.VC_pressedKeys.has("Escape") ? btrue : bfalse
+			return window.VC_pressedKeys.has("Escape")
 		case "Shift":
-			return window.VC_pressedKeys.has("Shift") ? btrue : bfalse
+			return window.VC_pressedKeys.has("Shift")
 		case "Ctrl":
-			return window.VC_pressedKeys.has("Control") ? btrue : bfalse
+			return window.VC_pressedKeys.has("Control")
 		case "Alt":
-			return window.VC_pressedKeys.has("Alt") ? btrue : bfalse
+			return window.VC_pressedKeys.has("Alt")
 		case "Up Arrow":
-			return window.VC_pressedKeys.has("ArrowUp") ? btrue : bfalse
+			return window.VC_pressedKeys.has("ArrowUp")
 		case "Down Arrow":
-			return window.VC_pressedKeys.has("ArrowDown") ? btrue : bfalse
+			return window.VC_pressedKeys.has("ArrowDown")
 		case "Left Arrow":
-			return window.VC_pressedKeys.has("ArrowLeft") ? btrue : bfalse
+			return window.VC_pressedKeys.has("ArrowLeft")
 		case "Right Arrow":
-			return window.VC_pressedKeys.has("ArrowRight") ? btrue : bfalse
+			return window.VC_pressedKeys.has("ArrowRight")
 		case "Caps Lock":
-			return window.VC_pressedKeys.has("CapsLock") ? btrue : bfalse
+			return window.VC_pressedKeys.has("CapsLock")
 		case "Delete":
-			return window.VC_pressedKeys.has("Delete") ? btrue : bfalse
+			return window.VC_pressedKeys.has("Delete")
 		case "Home":
-			return window.VC_pressedKeys.has("Home") ? btrue : bfalse
+			return window.VC_pressedKeys.has("Home")
 		case "End":
-			return window.VC_pressedKeys.has("End") ? btrue : bfalse
+			return window.VC_pressedKeys.has("End")
 		case "Page Up":
-			return window.VC_pressedKeys.has("PageUp") ? btrue : bfalse
+			return window.VC_pressedKeys.has("PageUp")
 		case "Page Down":
-			return window.VC_pressedKeys.has("PageDown") ? btrue : bfalse
+			return window.VC_pressedKeys.has("PageDown")
 		case "Insert":
-			return window.VC_pressedKeys.has("Insert") ? btrue : bfalse
+			return window.VC_pressedKeys.has("Insert")
 		default:
-			return window.VC_pressedKeys.has(key) ? btrue : bfalse
+			return window.VC_pressedKeys.has(key)
 	}
 }
 
-window.VC_mouseDown = bfalse
-window.addEventListener("mousedown", () => (window.VC_mouseDown = btrue))
-window.addEventListener("mouseup", () => (window.VC_mouseDown = bfalse))
+window.VC_mouseDown = false
+window.addEventListener("mousedown", () => (window.VC_mouseDown = true))
+window.addEventListener("mouseup", () => (window.VC_mouseDown = false))
 
-export function MouseDown(): bboolean {
-	return window.VC_mouseDown as bboolean
+export function MouseDown(): boolean {
+	return window.VC_mouseDown
 }
 
 const mouse_position: Vec2n = { x: 0, y: 0 }

@@ -1,15 +1,15 @@
 {
   "name": "visualcopium",
-  "version": "1.0.1",
-	"author": {
-		"url": "https://github.com/boyninja1555",
-		"email": "flappyfloorg@gmail.com",
-		"name": "boyninja1555"
-	},
+  "version": "1.0.2",
+  "author": {
+    "url": "https://github.com/boyninja1555",
+    "email": "flappyfloorg@gmail.com",
+    "name": "boyninja1555"
+  },
   "description": "Copium for visual programmers!",
   "homepage": "https://github.com/boyninja1555/visualcopium#readme",
   "bugs": {
-		"email": "flappyfloorg@gmail.com",
+    "email": "flappyfloorg@gmail.com",
     "url": "https://github.com/boyninja1555/visualcopium/issues"
   },
   "repository": {
@@ -19,13 +19,21 @@
   "license": "MIT",
   "type": "module",
   "module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js"
-		}
-	},
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./dom": {
+      "types": "./dist/dom.d.ts",
+      "import": "./dist/dom.js"
+    },
+    "./typing": {
+      "types": "./dist/typing.d.ts",
+      "import": "./dist/typing.js"
+    }
+  },
   "files": [
     "dist"
   ],
