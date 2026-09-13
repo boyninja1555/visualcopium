@@ -82,22 +82,12 @@ export function PickRandom(minimum: number, maximum: number): number {
  * @returns User's response
  */
 export function Ask(message: string): string {
-	if (
-		(typeof window != "undefined" || typeof Bun != "undefined") &&
-		typeof window.prompt == "function"
-	)
+	if ((typeof window != "undefined" || typeof Bun != "undefined") && typeof prompt == "function")
 		return prompt(message, "")!
 
-	if (typeof process !== "undefined") {
-		process.stdout.write(message)
-		try {
-			const buffer = Buffer.alloc(4096)
-			const bytesRead = require("fs").readSync(0, buffer, 0, 4096, null)
-			return buffer.toString("utf8", 0, bytesRead).replace(/\r?\n$/, "")
-		} catch (error) {
-			return ""
-		}
-	}
+	Say(
+		"We currently do not support asking with Node.js! It would introduce new topics that throw away usability.",
+	)
 
 	return ""
 }
