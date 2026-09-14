@@ -54,11 +54,11 @@ export function RepeatWhile(condition: Condition, callback: () => void): void {
 }
 
 /**
- * Repeats the code block/function forever. Use sparingly! Not recommended for browser use, will lag crazily. This is something we cannot fix.
+ * Repeats the code block/function forever. Everything after will now continue while this repeats!
  * @param callback Code block/function
  */
 export function Forever(callback: () => void): void {
-	while (true) callback()
+	setInterval(callback, 0)
 }
 
 // Math
