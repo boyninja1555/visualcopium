@@ -1,14 +1,23 @@
-import type { Condition } from "./typing.js"
+import { btrue, type bboolean, type Condition } from "./typing.js"
 
 declare global {
 	interface Window {
 		VC_pressedKeys: Set<String>
 		VC_keyPressListeners: Map<string, (() => void)[]>
-		VC_mouseDown: boolean
+		VC_mouseDown: bboolean
 	}
 }
 
 // Control
+
+/**
+ * Completes the code block only if a condition is true.
+ * @param condition Either a code block/function that returns `bfalse`/`btrue` or an expression that evaluates to one
+ * @param callback Code block/function
+ */
+export function If(condition: Condition, callback: () => void): void {
+	if ((typeof condition == "function" ? condition() : condition) == btrue) callback()
+}
 
 /**
  * Repeats the code block/function a number of times.
@@ -21,36 +30,20 @@ export function Repeat(times: number, callback: () => void): void {
 
 /**
  * Repeats the code block/function until a condition is finally true.
- * @param condition Either a code block/function that returns a boolean or an expression that evaluates to one.
+ * @param condition Either a code block/function that returns `bfalse`/`btrue` or an expression that evaluates to one
  * @param callback Code block/function
  */
 export function RepeatUntil(condition: Condition, callback: () => void): void {
-	while (
-		!(() =>
-			typeof condition == "number"
-				? condition != 0
-				: typeof condition == "boolean"
-					? condition
-					: condition())()
-	)
-		callback()
+	while ((typeof condition == "function" ? condition() : condition) != btrue) callback()
 }
 
 /**
  * Repeats the code block/function until a condition is no longer true.
- * @param condition Either a code block/function that returns a boolean or an expression that evaluates to one.
+ * @param condition Either a code block/function that returns `bfalse`/`btrue` or an expression that evaluates to one
  * @param callback Code block/function
  */
 export function RepeatWhile(condition: Condition, callback: () => void): void {
-	while (
-		(() =>
-			typeof condition == "number"
-				? condition != 0
-				: typeof condition == "boolean"
-					? condition
-					: condition())()
-	)
-		callback()
+	while ((typeof condition == "function" ? condition() : condition) == btrue) callback()
 }
 
 /**
