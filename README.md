@@ -16,11 +16,11 @@ Repeating is fun!
 ```javascript
 Repeat(10 /*times*/, () => {
 	// some code that does stuff 10 times :)
-	let message = Ask("Do you wanna? ")                   // you can ask the user stuff!
+	var message = Ask("Do you wanna? ")                   // you can ask the user stuff!
 	Say("Here's a number anyways! " + PickRandom(1, 100)) // you can say stuff back!
 })
 
-let canBeFalseIdfk = true
+var canBeFalseIdfk = true
 RepeatWhile(() => canBeFalseIdfk, () => {
 	canBeFalseIdfk = false
 	Say("Yay canBeFalseIdfk is now false!")
