@@ -16,13 +16,13 @@ Repeating is fun!
 ```javascript
 Repeat(10 /*times*/, () => {
 	// some code that does stuff 10 times :)
-	var message = Ask("Do you wanna? ")                   // you can ask the user stuff!
+	SetVariable("message", Ask("Do you wanna? "))         // you can ask the user stuff!
 	Say("Here's a number anyways! " + PickRandom(1, 100)) // you can say stuff back!
 })
 
-var canBeFalseIdfk = btrue
-RepeatWhile(() => canBeFalseIdfk, () => { // Some conditions (like ()=>canBeFalseIdfk) might be a block and return a boolean instead of passing one directly! For cases where the boolean might change over time.
-	canBeFalseIdfk = bfalse
+SetVariable("canBeFalseIdfk", btrue)
+RepeatWhile(() => GetVariable("canBeFalseIdfk"), () => { // Some conditions (like ()=>canBeFalseIdfk) might be a block and return a boolean instead of passing one directly! For cases where the boolean might change over time.
+	SetVariable("canBeFalseIdfk", bfalse)
 	Say("Yay canBeFalseIdfk is now false!")
 })
 

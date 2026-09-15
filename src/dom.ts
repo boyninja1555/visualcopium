@@ -88,6 +88,26 @@ export function WhenFlagClicked(callback: () => void): void {
 	document.addEventListener("DOMContentLoaded", callback)
 }
 
+window.VC_variables = new Map()
+
+/**
+ * Retrieves a variable's value. Undefined if it does not exist!
+ * @param name Variable's name
+ * @returns Variable's value
+ */
+export function GetVariable(name: string): any {
+	return window.VC_variables.get(name)
+}
+
+/**
+ * Creates and/or sets a variable's value.
+ * @param name Variable's name
+ * @param value Variable's new value
+ */
+export function SetVariable(name: string, value: any): void {
+	window.VC_variables.set(name, value)
+}
+
 window.VC_keyPressListeners = new Map()
 window.addEventListener("keypress", event => {
 	if (!window.VC_keyPressListeners.has(event.key)) return

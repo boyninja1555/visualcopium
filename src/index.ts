@@ -2,6 +2,7 @@ import { btrue, type bboolean, type Condition } from "./typing.js"
 
 declare global {
 	interface Window {
+		VC_variables: Map<string, any>
 		VC_pressedKeys: Set<String>
 		VC_keyPressListeners: Map<string, (() => void)[]>
 		VC_mouseDown: bboolean
